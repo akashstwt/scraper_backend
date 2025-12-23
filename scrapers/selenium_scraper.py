@@ -45,6 +45,8 @@ class SeleniumScraper:
         options.add_argument('--no-sandbox')
         options.add_argument('--disable-dev-shm-usage')
         options.add_argument('--window-size=1920,1080')
+        options.add_argument("--headless=new")
+        options.add_argument("--disable-gpu")
         
         # Headless mode (MUST be False to solve CAPTCHA manually)
         if self.headless:
@@ -63,7 +65,7 @@ class SeleniumScraper:
                         driver_path = os.path.join(root, file)
                         break
         
-        service = Service(driver_path)
+        service = Service("/usr/local/bin/chromedriver")
         driver = webdriver.Chrome(service=service, options=options)
         
         self.driver = driver
