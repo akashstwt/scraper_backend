@@ -1,0 +1,14 @@
+# nixpacks.toml
+
+[phases.setup]
+nixPkgs = ["python312", "chromium", "chromedriver"]
+
+[phases.install]
+cmds = ["pip install -r requirements.txt"]
+
+[start]
+cmd = "gunicorn app:app"
+
+[env]
+CHROME_BIN = "/nix/store/*-chromium-*/bin/chromium"
+CHROMEDRIVER_PATH = "/nix/store/*-chromedriver-*/bin/chromedriver"
