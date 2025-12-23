@@ -1,7 +1,6 @@
-"""
-Flask API Backend for Price Scraper Web Application
-Handles file uploads, scraping jobs, and email notifications
-"""
+from dotenv import load_dotenv
+load_dotenv()
+
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 from werkzeug.utils import secure_filename
